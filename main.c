@@ -16,12 +16,12 @@ int main() {
 	// read(fd, line, 546);
 	// printf("%d\n%s\n",validation(line),line);
 	head = get_figure(line, fd, head);
-	// while (i < 7)
-	// {
-	 	printf("%d", head->coordinate[6]);
+	while (i < 8)
+	{
+	 	printf("%d", *(head->coordinate));
 		head->coordinate++;
-	// 	i++;
-	// }
+		i++;
+	}
 	//close(fd);
     return 0;
 }
