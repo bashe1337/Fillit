@@ -6,7 +6,7 @@
 /*   By: bashe <bashe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 20:13:49 by bashe             #+#    #+#             */
-/*   Updated: 2019/11/18 21:22:26 by bashe            ###   ########.fr       */
+/*   Updated: 2019/11/20 18:56:03 by bashe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FILLIT_FILLIT_H
 
 # include "libft/libft.h"
+#include "stdio.h"
 
 typedef struct		s_fillit
 {
@@ -25,7 +26,7 @@ typedef struct		s_fillit
 int					validation(char *line);
 int					validString(char *line, int *i, int *sh);
 void				sh_counter(char *line, int *i, int **sh);
-void				get_figure(char *line, int fd);
+t_fillit			*get_figure(char *line, int fd, t_fillit *head);
 t_fillit			*create(char *line);
 t_fillit			*new_node(char *line, t_fillit *head);
 

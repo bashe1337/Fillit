@@ -6,7 +6,7 @@
 /*   By: bashe <bashe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 20:23:27 by bashe             #+#    #+#             */
-/*   Updated: 2019/11/18 21:41:22 by bashe            ###   ########.fr       */
+/*   Updated: 2019/11/20 20:33:38 by bashe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_fillit	*create(char *line)
 	new_elem = (t_fillit *)malloc(sizeof(t_fillit));
 	if (new_elem == NULL)
 		return (NULL);
-	new_elem->coordinate = (int *)malloc(8);
+	new_elem->coordinate = (int *)malloc(sizeof(int) + 8);
 	ft_bzero(new_elem->coordinate, 8);
 	new_elem->next = NULL;
 	return (new_elem);
@@ -40,9 +40,8 @@ t_fillit	*new_node(char *line, t_fillit *head)
 	return (head);
 }
 
-void		get_figure(char *line, int fd)
+t_fillit	*get_figure(char *line, int fd, t_fillit *head)
 {
-	t_fillit	*head;
 	int			x;
 	int			y;
 
@@ -54,12 +53,13 @@ void		get_figure(char *line, int fd)
 		x = 0;
 		while (line[x] == '.')
 			x++;
-		if (line[x] == '#')
+		while (line[x] == '#')
 		{
-			*(head->coordinate) = x;
+			*(head->coordinate) = x++;
 			head->coordinate++;
 			*(head->coordinate) = y;
 		}
 		y++;
 	}
+	return (head);
 }
